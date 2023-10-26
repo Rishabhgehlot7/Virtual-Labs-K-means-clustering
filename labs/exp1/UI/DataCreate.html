@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5"></script>
+
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js/dist/tippy.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container" id="box">
+        <!-- Instructions -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2 style="text-align: left;">Instructions</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <ol type="1" style="font-size: 20px; text-align: justify;">
+                        <li>Click on the <strong>CREATE</strong>.</li>
+                        <li>Enter the values of x and y in the data set.</li>
+                        <li>Click on the <strong>ADD</strong> button.</li>
+                        <li>Repeat steps 1 and 2 up to ten times.</li>
+                        <li>Click on the <strong>NEXT</strong> button.</li>
+                        <li>Select the value of Clusters, click on the <strong>SUBMIT</strong> button, and then click on
+                            the <strong>NEXT</strong> button.
+                        </li>
+                        <li> Select centroids and click on the <strong>SUBMIT</strong> button, then click on
+                            the <strong>NEXT</strong> button.
+                        </li>
+                        <li>Find out the Euclidean distance between a centroid and a data point by clicking on the
+                            buttons below the table.
+                        </li>
+                        <li>
+                            Now click on the highlighted cell (K) and enter the cluster value (<strong>Hint</strong>:
+                            provide the index of
+                            the MIN(D1,D2..DN), the index starts from 1).
+                        </li>
+                        <li>
+                            Repeat step 9 for all cells in the <strong>CLUSTER</strong> column.
+                        </li>
+
+                        <li>
+                            Click on the <strong>CENTROIDS</strong> button and compute the new centroid of each
+                            Cluster.
+                        </li>
+                        <li>
+                            Repeat steps 8 to 11 until no data points change Clusters.
+                        </li>
+                        <li>If the Cluster matches the new Cluster, then click on the <strong>NEXT</strong> button to
+                            change the <strong>COMPUTE</strong>
+                            tab to the <strong>ANALYSE</strong> tab.</li>
+                        <li>Click on the <strong>PLOT</strong> button to show the graph.</li>
+
+                    </ol>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <!-- header -->
+        <header class="header">
+            <div class="tabs">
+                <!-- tabs -->
+                <div id="tab-1"  style="color: black;border-top-left-radius: 10px;background-color:#e0e0e0;">
+                    <div class="tab-create tab-1-invert" style="border-top-left-radius: 10px;">
+                        CREATE
+                    </div>
+                    <img id="createimg" src="create1.png" style="margin-top: 3px; margin-right: 10px; height: 85%;" alt="">
+
+                </div>
+                <div id="tab-2" class="tab-1-disInvert" style="display: flex; border-right: 2px solid black;padding:0px">
+                    <div class="tab-create tab-1-disInvert">
+                      COMPUTE
+                    </div>
+                    <img id="calcimg" src="calculator.png" class="disableCompute"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;" id="calImg" alt="">
+                </div>
+                <div id="tab-3" class="tab-2-disInvert" style="display: flex; border-right: 2px solid black;padding:0px">
+                    <div class="tab-create tab-2-disInvert">
+
+                        ANALYSE
+                    </div>
+                    <img id="anaimg" src="ANALYSIS.png" class="disableCompute"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;" id="calImg" alt="">
+                </div>
+            </div>
+            <div class="instruction-container">
+                <a class="header-text" id="myBtn" style="padding-top: 5px" href="#">INSTRUCTIONS</a>
+            </div>
+        </header>
+
+        <div class="sec-con-container" id="trainingSection">
+            <div class="sec-con-column" id="non-table-section">
+                <!-- Data controls -->
+                <div class="training-left-side-container" id="training-left-side-container-1">
+                    <div class="sub-div-control" id="training-control">
+                        <header class="header-box"><strong>DATA SET</strong></header>
+                        <div class="control-panel">
+                            <div class="Data-set-x-value-input-container">
+                                <lab class="control-input-heading"><strong>X-VALUE</strong></lab>
+                                <input type="number" class="input-control" id="X" placeholder="x-coordinate"
+                                    oninput="limitDecimals(event)" min="0" title="Enter a valid positive number.">
+                            </div>
+                            <div class=" Data-set-x-value-input-container">
+                                <lab class="control-input-heading"><strong>Y-VALUE</strong></lab>
+                                <input type="number" class="input-control" id="Y" placeholder="y-coordinate"
+                                    oninput="limitDecimals(event)" title="Enter a valid positive number.">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- cluster-control -->
+                    <div class=" sub-div-control" id="cluster-control">
+                        <header class="header-box"><strong>CLUSTER</strong></header>
+                        <div class="cluster-control-panel">
+                            <div class="Data-set-K-value-input-container">
+                                <label class="control-input-heading"><strong>Select the value for K:</strong>
+                                </label>
+                                <!-- <input type="number" class="input-control" id="X" placeholder="x-coordinate" oninput="limitDecimals(event)"> -->
+                                <select name="Clusters" id="SelectCluster" class="ClusterStyle" multiple>
+                                    <!-- <option class="ChangeOptionBackground" value="" disabled hidden>0
+                                    </option> -->
+                                    <option class="ChangeOptionBackground" value="2">2</option>
+                                    <option class="ChangeOptionBackground" value="3">3</option>
+                                    <option class="ChangeOptionBackground" value="4">4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- cendroid-control -->
+                    <div class="sub-div-control" id="cendroid-control">
+                        <header class="header-box"><strong>CENDROIDS</strong></header>
+                        <div class="cendroid-control-panel">
+                            <div class="Data-set-cendroid-value-input-container">
+                                <label class="control-input-heading"><strong>Select Centroids:</strong></label>
+                                <select name="cendroid" id="Selectcendroid" class="cendroidStyle"
+                                    aria-placeholder="cendroidStyle" multiple>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- data button section -->
+                    <div class="control-panel-button-container" id="data-button-container">
+                        <input class="button" type="button" id="add-button" onclick="addDataPoint()" value="ADD"
+                            style="margin-left: 3px;" />
+                        <input class="button" type="button" value="RESET" onclick="window.location.href='DataCreate.html'"
+                            style="margin-left: 3px;" />
+                        <!-- <input class="button-next" type="button" id="next-button" value="NEXT" style="margin-left: 3px;" /> -->
+                        <button id="next-button" class="button">NEXT</button>
+                    </div>
+                    <!-- cluster button section -->
+                    <div class="cluster-panel-button-container " id="cluster-button-container">
+                        <input class="button" type="button" id="cluster-submit-button" value="SUBMIT"
+                            style="margin-left: 3px;" onclick="submitCluster()" />
+                        <input class="button" type="button" value="RESET" onclick="resetCluster()"
+                            style="margin-left: 3px;" />
+                        <!-- <input class="button-next" type="button" id="next-button" value="NEXT" style="margin-left: 3px;" /> -->
+                        <button id="cluster-next-button" class="button">NEXT</button>
+                    </div>
+                    <!-- cendroid button section -->
+                    <div class="cendroid-panel-button-container " id="cendroid-button-container">
+                        <input class="button" type="button" id="cendroid-submit-button" value="SUBMIT"
+                            style="margin-left: 3px;" onclick="submitCendroid()" />
+                        <input class="button" type="button" value="RESET" onclick="resetCentroidSection()"
+                            style="margin-left: 3px;" />
+                        <!-- <input class="button-next" type="button" id="next-button" value="NEXT" style="margin-left: 3px;" /> -->
+                        <button id="cendroid-next-button" class="button">NEXT</button>
+                    </div>
+                </div>
+                <!-- graph -->
+                <div class="sub-div-plot" id="graphId">
+                    <header class="header-box"><strong>GRAPH</strong></header>
+                    <div id="chart-container">
+                        <div id="chart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- table -->
+            <div class="sec-con-table" id="tableId">
+                <div class="sub-div-table">
+                    <header class="header-box"><strong>OBSERVATION TABLE</strong></header>
+                    <div id="tablesContainer">
+                        <table id="data-table">
+                            <!-- <thead> -->
+                            <tr id="">
+                                <th><strong>S. NO.</strong></th>
+                                <th><strong>X</strong></th>
+                                <th><strong>Y</strong></th>
+                                <th id="deleteButton"><strong>DELETE</strong></th>
+                            </tr>
+                            <!-- </thead> -->
+                            <!-- <tbody> -->
+                            <!-- Data point coordinates will be dynamically populated here -->
+                            <!-- </tbody> -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- compute section -->
+        <div class="compute-sec-con-container" id="ComputeSection">
+            <div class="flux-box">
+                <div class="tableSection" id="compute-table-section">
+                    <!-- table -->
+                    <div class="compute-sec-con-table">
+                        <div class="compute-sub-div-table">
+                            <header class="header-box"><strong>OBSERVATION TABLE</strong></header>
+                            <div id="ComputeTablesContainer">
+                                <table id="data-table-compute">
+                                    <tr id="">
+                                        <th><strong>S. NO.</strong></th>
+                                        <th><strong>X</strong></th>
+                                        <th><strong>Y</strong></th>
+                                        <th id="c1-header" style="display: none;"><strong>D1</strong></th>
+                                        <th id="c2-header" style="display: none;"><strong>D2</strong></th>
+                                        <th id="c3-header" style="display: none;"><strong>D3</strong></th>
+                                        <th id="c4-header" style="display: none;"><strong>D4</strong></th>
+                                        <th id="clusterK"><strong>CLUSTER</strong></th>
+                                        <th><strong>NEW CLUSTER</strong></th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="computeButtonContainer" id="compute-item-2">
+                                <button class="button-compute" id="c1compute">D1</button>
+                                <button class="button-compute" id="c2compute">D2</button>
+                                <button class="button-compute" id="c3compute">D3</button>
+                                <button class="button-compute" id="c4compute">D4</button>
+                                <button class="button-compute" onclick="resetComputeSectionForButton()">RESET</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="compute-sec-con-left-side-container" id="compute-item-3">
+                    <div class="sub-div-formula">
+                        <header class="header-box"><strong>FORMULA</strong></header>
+                        <div class="formula-container">
+                            <div class="equation">Euclidean equation:</div>
+                            <div class="equation" title="Euclidean equation"> √((X<sub>2</sub> – X<sub>1</sub>)² +
+                                (Y<sub>2</sub> – Y<sub>1</sub>)²)</div>
+                        </div>
+                    </div>
+
+                    <div class="sub-div-cendroids" id="compute-item-4">
+                        <header class="header-box"><strong>CENTROIDS</strong></header>
+                        <div id="showCentroidsAll" class="cenroidsContainer">
+                            <div id="cenroidsContainerOld" class="cenroidsContainerOld"></div>
+                            <div id="cenroidsContainerStore" class="cenroidsContainerNew"></div>
+                            <!-- <div id="cenroidsContainerNew" class="cenroidsContainerNew"></div> -->
+                        </div>
+                    </div>
+                    <div class="newCentroidContainer" id="compute-item-5">
+                        <button class="button-new-cendroids" id="new-centroids">CENTROIDS</button>
+                        <button class="button-next-compute" id="next-compute-to-analysis">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- analyse section -->
+        <div class="compute-sec-con-container" id="analyseSection">
+            <div class="flux-box">
+                <!-- table -->
+                <div class="analysis-sec-con-table">
+                    <div class="analysis-sub-div-table">
+                        <header class="header-box"><strong>OBSERVATION TABLE</strong></header>
+                        <div id="analysisTablesContainer">
+                            <table id="data-table-analysis">
+                                <thead>
+                                    <tr>
+                                        <th>S. No.</th>
+                                        <th>X</th>
+                                        <th>Y</th>
+                                        <th>CLUSTERS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sec-con-column-analysis">
+
+                    <div class="sub-div-plot-analysis">
+                        <header class="header-box"><strong>GRAPH</strong></header>
+                        <div id="legend"></div>
+                        <div id="graph"></div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="analysis-button-container">
+                <button class="button" id="plot-analysis">PLOT</button>
+                <button class="button" id="print" onclick="printPage()">PRINT</button>
+            </div>
+
+        </div>
+
+
+
+        <!-- footer -->
+        <footer class="footer">
+            <span class="footer-text">© 2023 Virtual Labs, IIT Roorkee</span>
+        </footer>
+    </div>
+
+
+
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+
+
+</body>
+
+</html>

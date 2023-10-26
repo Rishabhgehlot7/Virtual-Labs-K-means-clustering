@@ -1,0 +1,468 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Virtual Labs </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <script>
+    window.onload = function () {
+      document.getElementById("theory").className = "active treeview";
+    }
+  </script>
+  <style>
+    /* * {
+      text-align: justify;
+    } */
+
+    #toggle_nav:hover {
+      background-color: #1261A0;
+    }
+
+    #theory {
+      background-color: #009dff;
+    }
+
+    #aim:hover,
+    #theory:hover,
+    #pretest:hover,
+    #procedure:hover,
+    #simulation:hover,
+    #result:hover,
+    #posttest:hover,
+    #references:hover {
+      background-color: #009dff;
+    }
+
+    .imageContainer {
+
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      align-items: center;
+    }
+
+    img {
+      height: 300px;
+      width: 300px;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    .formula {
+      display: block;
+      text-align: center;
+    }
+
+    .dataSize {
+      font-size: 1.8rem;
+
+    }
+    li{
+      text-align: justify;
+    }
+    p{
+      text-align: justify;
+    }
+  </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <!--Navigation Bar-->
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://iitr.ac.in"><span><img src="../images/iitrLogo.png"
+              style="margin-top:-15px;height:50px;width: 400px;"></span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="../index.html" class="logo"
+        style="background-color:#009dff; border-right:solid;border-right-color: #1261A0;">
+        <p align="center" style="font-size:1em;color: white;text-align: center;"><b>Machine Learning Lab</b></p>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" style="background-color:#009dff;">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="toggle_nav">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <section class="content-header">
+          <ol class="breadcrumb">
+            <li>
+              <a href="../index.html"><i class="fa fa-dashboard"></i>Machine Learning Lab</a>
+            </li>
+            <li>
+              <a href="#">K-means Clustering</a>
+            </li>
+            <li class="active">Theory</li>
+          </ol>
+        </section>
+      </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" style="background-color:#1261A0;">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group"></div>
+        </form>
+        <!-- /.sear ch form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" style="background-color:#1261A0;">
+          <li class="treeview" id="aim">
+            <a href="index.html" id="aim">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Aim</span>
+
+            </a>
+          </li>
+          <li class="treeview" id="theory">
+            <a href="theory.html" id="theory" onclick="theory()">
+              <i class="fa fa-files-o" style="color:white;"></i>
+              <span style="color:white;">Theory</span>
+            </a>
+          </li>
+          <!--   <li class="treeview" id="numerical">
+                    <a href="numerical.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Numerical</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li class="treeview" id="program">
+                    <a href="program.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Program</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li> -->
+          <li class="treeview" id="pretest">
+            <a href="pretest.html" id="pretest">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Pre Test</span>
+
+            </a>
+          </li>
+
+          <li class="treeview" id="procedure">
+            <a href="procedure.html" id="procedure">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Procedure</span>
+            </a>
+          </li>
+          <li class="treeview" id="simulation">
+            <a href="simulation.html" id="simulation">
+              <i class="fa fa-laptop" style="color:white;"></i>
+              <span style="color:white;">Simulation</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+
+
+
+          <li class="treeview" id="posttest">
+            <a href=" posttest.html" id="posttest">
+              <i class=" fa fa-files-o" style="color:white;">
+              </i>
+              <span style="color:white;">Post Test</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+          <li class="treeview" id="ref">
+            <a href="references.html" id="references">
+              <i class="fa fa-files-o" style="color:white;"></i>
+              <span style="color:white;">References</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1 align="center">
+          K-means Clustering<!-- Write experiment name here -->
+        </h1>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+        <!-- <h3 style="margin-top:5%"> Theory </h3> -->
+        <p style="font-size:130%; margin-top:2%">
+
+          <!--Theory of experiment -->
+        <h2><strong>Introduction</strong></h2>
+
+        <p>
+          K-means Clustering is a type of unsupervised learning, which is used when you have unlabeled data (i.e., data
+          without defined categories or groups).
+        </p>
+        <p>K-means Clustering was originally discovered by Polish mathematician Hugo Steinhaus in 1956. The algorithm
+          was independently proposed by several researchers including Lloyd, MacQueen, and Jancey during the 1950s and
+          1960s.
+        </p>
+        <p>
+          K-means Clustering is a method of vector quantization that is popular for cluster analysis in data mining.
+        </p>
+        <p>
+          The goal of this algorithm is to find groups in the data, with the
+          number of groups represented by the variable K. The algorithm works iteratively to assign each data point to
+          one of the K groups based on the features that are provided. Data points are clustered based on feature
+          similarity. Rather than defining groups before looking at the data, clustering allows you to find and analyze
+          the groups that have formed organically. The "Choosing K" section below describes how the number of groups can
+          be determined.
+        </p>
+        <p>
+          Each centroid of a cluster is a collection of feature values that define the resulting groups. Examining the
+          centroid feature weights can be used to qualitatively interpret what kind of group each cluster represents.
+        </p>
+        <p>
+          The Κ-means clustering algorithm uses iterative refinement to produce a final result. The algorithm inputs
+          are
+          the number of clusters Κ and the data set. The data set is a collection of features for each data point. The
+          algorithms start with initial estimates for the Κ centroids, which can either be randomly generated or
+          randomly selected from the data set. The algorithm then iterates between two steps:
+        </p>
+
+
+        <h3>
+          <strong>
+            1. Data assignment step:
+          </strong>
+        </h3>
+        <p>
+          Each centroid defines one of the clusters. In this step, each data point is assigned to its nearest
+          centroid,
+          based on the squared Euclidean distance. More formally, if C<sub>i</sub> is the collection of centroids in set
+          C, then
+          each data point x is assigned to a cluster based on
+        </p>
+        <p>
+          where dist( · ) is the standard (L2) Euclidean distance. Let the set of data point assignments for each
+          i<sup>th</sup>
+          cluster centroid be silhouette coefficient.
+        </p>
+        <h4 class="formula"><strong>Euclidean distance</strong></h4>
+        <h4 class="formula"><strong> d =√((X<sub>2</sub> - X<sub>1</sub>)² + (Y<sub>2</sub> - Y<sub>1</sub>)²)</strong>
+        </h4>
+        <p>
+          Where, “d” is the Euclidean distance,<br>
+          "X<sub>1</sub>" is the x axis of data point,<br>
+          "X<sub>2</sub>" is the x axis of Centroid,<br>
+          "Y<sub>1</sub>" is the y axis of Data point,<br>
+          "Y<sub>2</sub>" is the y axis of Centroid
+        </p>
+
+        <h3>
+          <strong>
+            2. Centroid update step:
+          </strong>
+        </h3>
+        <p>
+          In this step, the centroids are recomputed. This is done by taking the mean of all data points assigned to
+          that centroid's cluster.
+        </p>
+        <p>The algorithm iterates between steps one and two until a stopping criterion is met (i.e., no data points
+          change clusters, the sum of the distances is minimized, or some maximum number of iterations is reached).
+        </p>
+        <p>This algorithm is guaranteed to converge to a result. The result may be a local optimum (i.e. not
+          necessarily
+          the best possible outcome), meaning that assessing more than one run of the algorithm with randomized
+          starting
+          centroids may give a better outcome.</p>
+        <div class="imageContainer">
+
+          <img src="images/1.png" alt="" style="width: 700px;">
+          <label for="">Figure 1.1 Data clustering based on similarity and dissimilarity.</label>
+        </div>
+
+
+        <h3><strong>Example</strong></h3>
+        <p>A pizza chain wants to open its delivery centers across a city. To do this, they need to analyze the city's
+          data and find the best locations for their centers. They can use K-means clustering to group the city's data
+          into clusters based on their similarities. For example, they can group the data based on the number of
+          households in each area, the average income of each area, and the distance from each area to the nearest
+          highway. Then they can choose the centers' locations based on the clusters' centroids.</p>
+
+        <h3>
+          <strong>
+
+            Properties and features
+          </strong>
+        </h3>
+        <ul class="dataSize">
+          <li>It is a centroid-based algorithm.</li>
+          <li>It is an unsupervised learning algorithm.</li>
+          <li>It is used to solve clustering problems in machine learning or data science.</li>
+          <li>It aims to minimize the sum of the squared distance between the data points and the centroids within
+            each
+            cluster.
+          </li>
+          <li>
+            It is a simple and frequently used algorithm in data mining and statistics.
+          </li>
+        </ul>
+
+        <h3><strong> The k-means algorithm works as follows:</strong></h3>
+
+        <p>1. Select the number of clusters (k) to be created.</p>
+        <div class="imageContainer">
+          <img src="images/2.png" alt="">
+          <label for="">Figure 2.1 Select the desired number of clusters (k)</label>
+
+        </div>
+        <p>2. Randomly assign each data point to a cluster.</p>
+        <div class="imageContainer">
+          <img src="images/3.png" alt="">
+          <label for="">Figure 2.2 Randomly assign data points to clusters</label>
+
+        </div>
+        <p>3. Compute the centroid of each cluster.</p>
+        <div class="imageContainer">
+          <img src="images/4.png" alt="">
+          <label for="">Figure 2.3 Calculate cluster centroid</label>
+
+        </div>
+        <p>4. Reassign each data point to the cluster whose centroid is closest.</p>
+        <div class="imageContainer">
+          <img src="images/5.png" alt="">
+          <label for="">Figure 2.4 Align data points with nearest cluster's centroid</label>
+
+        </div>
+        <p>5. Repeat steps 3 and 4 until no data points change clusters.</p>
+
+        <h3><strong>Applications</strong> </h3>
+        <ul class="dataSize">
+          <li><strong>Customer Segmentation</strong>: Clustering enhances the customer base, targeting areas, and
+            segmenting based on purchase history, interests, or activity monitoring.</li>
+          <li><strong>Document Classification</strong>: K-means algorithm classifies documents based on tags, topics,
+            and content using vector processing and clustering.</li>
+          <li><strong>Identifying crime localities</strong>: Data on crimes in specific localities provides valuable
+            insights into crime-prone areas and their categories.
+          </li>
+          <li><strong>Delivery store optimization</strong>: Optimize truck drone delivery using k-means and genetic
+            algorithms for optimal launch locations and route optimization.
+          </li>
+          <li><strong>Rideshare data analysis</strong>: Uber ride information dataset offers valuable insights into
+            traffic patterns, transit time, and peak pickup locations for future city planning.</li>
+          <li><strong>Call record detail analysis</strong>: Call detail record captures customer information, including
+            calls, messages, and internet activity, providing insights into customer needs using demographics and
+            K-means clustering algorithm.
+          </li>
+          <li><strong>Insurance fraud detection</strong>: Machine learning is crucial for fraud detection in automobile,
+            healthcare, and insurance, identifying clusters of fraudulent patterns and is essential for preventing
+            multi-million-dollar impacts on companies.
+          </li>
+          <li><strong>Cyber-Profiling criminals</strong>: Cyber-profiling involves collecting data from individuals and
+            groups to identify significant co-relations, derived from criminal profiles, to classify criminals and users
+            in specific environments.</li>
+          <li><strong>Automatic clustering of IT alerts</strong>:Enterprise IT infrastructure technology generates large
+            volumes of alert messages, requiring manual screening for prioritization and clustering for better analysis
+            and failure prediction.</li>
+          <li><strong>K-Means Clustering</strong> is used for image segmentation, grouping similar
+            pixels and creating clusters. It can also be used in recommendation engines, like music streaming
+            applications, to group similar types or genres based on user patterns.</li>
+        </ul>
+
+        <h3><strong> Advantages</strong></h3>
+        <ul class="dataSize">
+          <li>It is very easy to understand and implement.</li>
+          <li>If we have a large number of variables, then K-means would be faster than Hierarchical clustering.</li>
+          <li>On re-computation of centroids, an instance can change the cluster.</li>
+          <li>Tighter clusters are formed with K-means as compared to Hierarchical clustering.</li>
+          <li>K-means Clustering can be used on unlabeled data sets.</li>
+          <li>K-means Clustering can be used on nonlinearly separable data.</li>
+          <li>The K-means Clustering algorithm is simple and fast.</li>
+        </ul>
+
+        <h3><strong> Disadvantages</strong></h3>
+        <ul class="dataSize">
+          <li>The number of clusters has to be defined beforehand.</li>
+          <li>It is sensitive to initial conditions.</li>
+          <li>It is not suitable for all types of data.</li>
+        </ul>
+
+
+        <h3><strong> Conclusion</strong></h3>
+
+        <p>K-means Clustering is a popular unsupervised learning algorithm that is used to group observations with
+          similar characteristics. It is widely used in various fields such as data mining, machine learning, and
+          image
+          processing. The algorithm is simple and easy to implement, but it has some limitations such as the need to
+          specify the number of clusters in advance and the sensitivity to initial conditions. Despite these
+          limitations, K-means Clustering remains a powerful tool for data analysis and pattern recognition.</p>
+
+
+
+
+
+
+
+
+
+
+        </p>
+      </section>
+      <!-- /.content -->
+    </div>
+    <footer class="main-footer">
+      <h4 align="center">Lab contributed by IIT Roorkee <!-- Institute Name --> </h4>
+    </footer>
+  </div>
+
+</body>
+
+</html>
+<script>
+  function theory() {
+    document.getElementById("theory").style.backgroundColor = "#009dff";
+
+  }
+
+
+</script>
+<!-- ./wrapper -->
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>

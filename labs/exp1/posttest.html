@@ -1,0 +1,473 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Virtual Labs </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <script>
+    window.onload = function () {
+      document.getElementById("posttest").className = "active treeview";
+    }
+  </script>
+  <style>
+    #toggle_nav:hover {
+      background-color: #1261A0;
+    }
+
+    #posttest {
+      background-color: #009dff;
+    }
+
+    #aim:hover,
+    #theory:hover,
+    #pretest:hover,
+    #procedure:hover,
+    #simulation:hover,
+    #result:hover,
+    #posttest:hover,
+    #references:hover {
+      background-color: #009dff;
+    }
+
+    .question {
+      margin-bottom: 15px;
+    }
+
+    .content {
+      font-family: "Raleway", sans-serif;
+      color: #000000;
+      text-align: justify;
+      font-size: 1.2rem;
+    }
+
+    .options {
+      margin-bottom: 10px;
+    }
+
+    .option {
+      margin-bottom: 5px;
+      font-size: 1.8rem;
+    }
+
+    .submit-btn {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      /* font-size: 18px; */
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+
+    #result-1,
+    #result-2,
+    #result-3,
+    #result-4,
+    #result-5 {
+      font-size: 1.8rem;
+    }
+
+    #button-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <!--Navigation Bar-->
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.iitr.ac.in/"><span><img src="../images/iitrLogo.png"
+              style="margin-top:-15px;height:50px;width: 400px;"></span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="../index.html" class="logo"
+        style="background-color:#009dff; border-right:solid;border-right-color: #1261A0;">
+        <p align="center" style="font-size:1em;color: white;"><b>Machine Learning Lab</b></p>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" style="background-color:#009dff;">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="toggle_nav">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <section class="content-header">
+          <ol class="breadcrumb">
+            <li>
+              <a href="../index.html"><i class="fa fa-dashboard"></i>Machine Learning Lab</a>
+            </li>
+            <li>
+              <a href="#">K-means Clustering</a>
+            </li>
+            <li class="active">Post Test</li>
+          </ol>
+        </section>
+      </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" style="background-color:#1261A0;">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group"></div>
+        </form>
+        <!-- /.sear ch form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" style="background-color:#1261A0;">
+          <li class="treeview" id="aim">
+            <a href="index.html" id="aim">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Aim</span>
+
+            </a>
+          </li>
+          <li class="treeview" id="theory">
+            <a href="theory.html" id="theory">
+              <i class="fa fa-files-o" style="color:white;"></i>
+              <span style="color:white;">Theory</span>
+            </a>
+          </li>
+          <!--   <li class="treeview" id="numerical">
+                    <a href="numerical.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Numerical</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li class="treeview" id="program">
+                    <a href="program.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Program</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li> -->
+          <li class="treeview" id="pretest">
+            <a href="pretest.html" id="pretest">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Pre Test</span>
+
+            </a>
+          </li>
+
+          <li class="treeview" id="procedure">
+            <a href="procedure.html" id="procedure">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Procedure</span>
+            </a>
+          </li>
+          <li class="treeview" id="simulation">
+            <a href="simulation.html" id="simulation">
+              <i class="fa fa-laptop" style="color:white;"></i>
+              <span style="color:white;">Simulation</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+
+
+
+          <li class="treeview" id="posttest">
+            <a href=" posttest.html" id="posttest">
+              <i class=" fa fa-files-o" style="color:white;">
+              </i>
+              <span style="color:white;">Post Test</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+          <li class="treeview" id="ref">
+            <a href="references.html" id="references">
+              <i class="fa fa-files-o" style="color:white;"></i>
+              <span style="color:white;">References</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1 align="center">
+          K-means Clustering<!-- Write experiment name here -->
+        </h1>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+        <!-- <h3 style="margin-top:5%"> Post Test </h3> -->
+        <p style="font-size:130%; margin-top:2%">
+
+          <!--Post Test of experiment -->
+        <div class="question">
+          <p>1. The initialization step in the K-means Clustering algorithm involves randomly selecting ________ as
+            initial cluster centroids.</p>
+          <div class="options">
+            <div class="option">
+              <input type="radio" name="q6" value="a"> a) Data points
+            </div>
+            <div class="option">
+              <input type="radio" name="q6" value="b"> b) Cluster indices
+            </div>
+            <div class="option">
+              <input type="radio" name="q6" value="c"> c) Cluster labels
+            </div>
+            <div class="option">
+              <input type="radio" name="q6" value="d"> d) Centroid coordinates
+            </div>
+          </div>
+          <div id="result-1"></div>
+        </div>
+
+        <div class="question">
+          <p>2. K-means Clustering is an unsupervised learning algorithm used for __________.</p>
+          <div class="options">
+            <div class="option">
+              <input type="radio" name="q7" value="a"> a) Classification
+            </div>
+            <div class="option">
+              <input type="radio" name="q7" value="b"> b) Regression
+            </div>
+            <div class="option">
+              <input type="radio" name="q7" value="c"> c) Dimensionality reduction
+            </div>
+            <div class="option">
+              <input type="radio" name="q7" value="d"> d) Clustering
+            </div>
+          </div>
+          <div id="result-2"></div>
+        </div>
+
+        <div class="question">
+          <p>3. In K-means Clustering, K refers to __________.</p>
+          <div class="options">
+            <div class="option">
+              <input type="radio" name="q8" value="a"> a) The number of clusters
+            </div>
+            <div class="option">
+              <input type="radio" name="q8" value="b"> b) The distance metric
+            </div>
+            <div class="option">
+              <input type="radio" name="q8" value="c"> c) The centroid initialization method
+            </div>
+            <div class="option">
+              <input type="radio" name="q8" value="d"> d) The number of iterations
+            </div>
+          </div>
+          <div id="result-3"></div>
+        </div>
+
+        <div class="question">
+          <p>4. Which step in the K-means algorithm involves reassigning data points to their closest centroids?</p>
+          <div class="options">
+            <div class="option">
+              <input type="radio" name="q9" value="a"> a) Centroid initialization
+            </div>
+            <div class="option">
+              <input type="radio" name="q9" value="b"> b) Cluster assignment
+            </div>
+            <div class="option">
+              <input type="radio" name="q9" value="c"> c) Centroid update
+            </div>
+            <div class="option">
+              <input type="radio" name="q9" value="d"> d) Convergence check
+            </div>
+          </div>
+          <div id="result-4"></div>
+        </div>
+
+        <div class="question">
+          <p>5. K-means Clustering is sensitive to __________.</p>
+          <div class="options">
+            <div class="option">
+              <input type="radio" name="q10" value="a"> a) Initial centroid placement
+            </div>
+            <div class="option">
+              <input type="radio" name="q10" value="b"> b) The number of dimensions in the data
+            </div>
+            <div class="option">
+              <input type="radio" name="q10" value="c"> c) Outliers in the data
+            </div>
+            <div class="option">
+              <input type="radio" name="q10" value="d"> d) All of the above
+            </div>
+          </div>
+          <div id="result-5"></div>
+        </div>
+
+        <div id="button-container">
+          <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+        </div>
+        <br />
+        <br />
+        <div id="score" class="size"></div>
+        </p>
+      </section>
+      <!-- /.content -->
+    </div>
+    <footer class="main-footer">
+      <h4 align="center">Lab contributed by IIT Roorkee <!-- Institute Name --> </h4>
+    </footer>
+  </div>
+  <script>
+    // JavaScript code
+    function submitQuiz() {
+      resetQuiz();
+      var q6Answer = document.querySelector('input[name="q6"]:checked');
+      var q7Answer = document.querySelector('input[name="q7"]:checked');
+      var q8Answer = document.querySelector('input[name="q8"]:checked');
+      var q9Answer = document.querySelector('input[name="q9"]:checked');
+      var q10Answer = document.querySelector('input[name="q10"]:checked');
+
+      // Calculate score based on the selected answers
+      var score = 0;
+      if (q6Answer && q6Answer.value === "a") {
+        score++;
+        q6Answer.parentElement.classList.add("correct");
+        document.getElementById('result-1').innerHTML = 'Correct!';
+        document.getElementById('result-1').style.color = 'green';
+      } else if (q6Answer) {
+        q6Answer.parentElement.classList.add("incorrect");
+        document.getElementById('result-1').innerHTML = 'Wrong!';
+        document.getElementById('result-1').style.color = 'red';
+
+      }
+      else {
+        document.getElementById('result-1').innerHTML = 'No answer selected!'
+        document.getElementById('result-1').style.color = 'red';
+      }
+      if (q7Answer && q7Answer.value === "d") {
+        score++;
+        q7Answer.parentElement.classList.add("correct");
+        document.getElementById('result-2').innerHTML = 'Correct!';
+        document.getElementById('result-2').style.color = 'green';
+      } else if (q7Answer) {
+        q7Answer.parentElement.classList.add("incorrect");
+        document.getElementById('result-2').innerHTML = 'Wrong!';
+        document.getElementById('result-2').style.color = 'red';
+      }
+      else {
+        document.getElementById('result-2').innerHTML = 'No answer selected!'
+        document.getElementById('result-2').style.color = 'red';
+      }
+
+      if (q8Answer && q8Answer.value === "a") {
+        score++;
+        q8Answer.parentElement.classList.add("correct");
+        document.getElementById('result-3').innerHTML = 'Correct!';
+        document.getElementById('result-3').style.color = 'green';
+      } else if (q8Answer) {
+        q8Answer.parentElement.classList.add("incorrect");
+        document.getElementById('result-3').innerHTML = 'Wrong!';
+        document.getElementById('result-3').style.color = 'red';
+      }
+      else {
+        document.getElementById('result-3').innerHTML = 'No answer selected!'
+        document.getElementById('result-3').style.color = 'red';
+      }
+
+      if (q9Answer && q9Answer.value === "b") {
+        score++;
+        q9Answer.parentElement.classList.add("correct");
+        document.getElementById('result-4').innerHTML = 'Correct!';
+        document.getElementById('result-4').style.color = 'green';
+      } else if (q9Answer) {
+        q9Answer.parentElement.classList.add("incorrect");
+        document.getElementById('result-4').innerHTML = 'Wrong!';
+        document.getElementById('result-4').style.color = 'red';
+      }
+      else {
+        document.getElementById('result-4').innerHTML = 'No answer selected!'
+        document.getElementById('result-4').style.color = 'red';
+      }
+
+      if (q10Answer && q10Answer.value === "d") {
+        score++;
+        q10Answer.parentElement.classList.add("correct");
+        document.getElementById('result-5').innerHTML = 'Correct!';
+        document.getElementById('result-5').style.color = 'green';
+      } else if (q10Answer) {
+        q10Answer.parentElement.classList.add("incorrect");
+        document.getElementById('result-5').innerHTML = 'Wrong!';
+        document.getElementById('result-5').style.color = 'red';
+      }
+      else {
+        document.getElementById('result-5').innerHTML = 'No answer selected!'
+        document.getElementById('result-5').style.color = 'red';
+      }
+
+      function resetQuiz() {
+        // Remove CSS classes
+        var allAnswers = document.querySelectorAll('input[type="radio"]');
+        allAnswers.forEach(function (answer) {
+          answer.parentElement.classList.remove("correct");
+          answer.parentElement.classList.remove("incorrect");
+        });
+      }
+
+      // Display the score or perform other actions
+      let resultInfo = document.getElementById('score');
+      // alert( 'You scored ' + score + ' out of 5 questions.');
+      resultInfo.innerHTML = `You scored ${score} out of 5 questions.`;
+    }
+  </script>
+</body>
+
+</html>
+
+<!-- ./wrapper -->
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>

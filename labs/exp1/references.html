@@ -1,0 +1,228 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Virtual Labs </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <script>
+    window.onload = function () {
+      document.getElementById("references").className = "active treeview";
+    }
+  </script>
+  <style>
+    #toggle_nav:hover {
+      background-color: #1261A0;
+    }
+
+    #references {
+      background-color: #009dff;
+    }
+
+    #aim:hover,
+    #theory:hover,
+    #pretest:hover,
+    #procedure:hover,
+    #simulation:hover,
+    #result:hover,
+    #posttest:hover,
+    #references:hover {
+      background-color: #009dff;
+    }
+
+    .content {
+      font-size: 1.8rem;
+    }
+  </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <!--Navigation Bar-->
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.iitr.ac.in/"><span><img src="../images/iitrLogo.png"
+              style="margin-top:-15px;height:50px;width: 400px;"></span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="../index.html" class="logo"
+        style="background-color:#009dff; border-right:solid;border-right-color: #1261A0;">
+        <p align="center" style="font-size:1em;color: white;"><b>Machine Learning Lab<!-- Write your lab name --> </b>
+        </p>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" style="background-color:#009dff;">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="toggle_nav">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <section class="content-header">
+          <ol class="breadcrumb">
+            <li>
+              <a href="../index.html"><i class="fa fa-dashboard"></i>Machine Learning Lab</a>
+            </li>
+            <li>
+              <a href="#">K-means Clustering<!-- Write your experiment name --> </a>
+            </li>
+            <li class="active">References</li>
+          </ol>
+        </section>
+      </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" style="background-color:#1261A0;">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group"></div>
+        </form>
+        <!-- /.sear ch form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" style="background-color:#1261A0;">
+          <li class="treeview" id="aim">
+            <a href="index.html" id="aim">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Aim</span>
+
+            </a>
+          </li>
+          <li class="treeview" id="theory">
+            <a href="theory.html" id="theory">
+              <i class="fa fa-files-o" style="color:white;"></i>
+              <span style="color:white;">Theory</span>
+            </a>
+          </li>
+          <!--   <li class="treeview" id="numerical">
+                    <a href="numerical.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Numerical</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li class="treeview" id="program">
+                    <a href="program.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Program</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li> -->
+          <li class="treeview" id="pretest">
+            <a href="pretest.html" id="pretest">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Pre Test</span>
+
+            </a>
+          </li>
+
+          <li class="treeview" id="procedure">
+            <a href="procedure.html" id="procedure">
+              <i class="fa fa-files-o" style="color:white;"></i> <span style="color:white;">Procedure</span>
+            </a>
+          </li>
+          <li class="treeview" id="simulation">
+            <a href="simulation.html" id="simulation">
+              <i class="fa fa-laptop" style="color:white;"></i>
+              <span style="color:white;">Simulation</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+
+
+
+          <li class="treeview" id="posttest">
+            <a href=" posttest.html" id="posttest">
+              <i class=" fa fa-files-o" style="color:white;">
+              </i>
+              <span style="color:white;">Post Test</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+          <li class="treeview" id="ref">
+            <a href="references.html" id="references">
+              <i class="fa fa-files-o" style="color:white;"></i>
+              <span style="color:white;">References</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1 align="center">
+          K-means Clustering<!-- Write experiment name here -->
+        </h1>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+        <h3 style="margin-top:5%"> References </h3>
+        <p style="font-size:130%; margin-top:2%;">
+        <ol> <!--Theory of experiment -->
+          <li>Jiawei Han, Micheline Kamber and Jian Pei, Data Mining: Concepts and Techniques, Third Edition, 2012.
+          </li>
+          <li>Christopher M. Bishop, Pattern Recognition and Machine Learning, 2006. </li>
+          <li>Pang-Ning Tan, Michael Steinbach and Vipin Kumar, Introduction to Data Mining, 2006.</li>
+          <li>J. A. Hartigan and M. A. Wong, A K-Means Clustering Algorithm, Journal of the Royal Statistical Society.
+            Series C (Applied Statistics), Vol. 28, No. 1
+            (1979)
+          </li>
+        </ol>
+
+        </p>
+      </section>
+      <!-- /.content -->
+    </div>
+    <footer class="main-footer">
+      <h4 align="center">Lab contributed by IIT Roorkee <!-- Institute Name --> </h4>
+    </footer>
+  </div>
+
+</body>
+
+</html>
+
+<!-- ./wrapper -->
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>

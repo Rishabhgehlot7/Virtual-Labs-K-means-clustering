@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="index.html"></script> -->
+
+</head>
+
+<body>
+
+    <div class="container" id="box">
+        <!-- Instructions -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2 style="text-align: left;">Instructions</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <ol type="1" style="font-size: 20px; text-align: justify;">
+                        <li>Click on the <strong>CREATE</strong>.</li>
+                        <li>Enter the values of x and y in the data set.</li>
+                        <li>Click on the <strong>ADD</strong> button.</li>
+                        <li>Repeat steps 1 and 2 up to ten times.</li>
+                        <li>Click on the <strong>NEXT</strong> button.</li>
+                        <li>Select the value of Clusters, click on the <strong>SUBMIT</strong> button, and then click on
+                            the <strong>NEXT</strong> button.
+                        </li>
+                        <li> Select centroids and click on the <strong>SUBMIT</strong> button, then click on
+                            the <strong>NEXT</strong> button.
+                        </li>
+                        <li>Find out the Euclidean distance between a centroid and a data point by clicking on the
+                            buttons below the table.
+                        </li>
+                        <li>
+                            Now click on the highlighted cell (K) and enter the cluster value (<strong>Hint</strong>:
+                            provide the index of
+                            the MIN(D1,D2..DN), the index starts from 1).
+                        </li>
+                        <li>
+                            Repeat step 9 for all cells in the <strong>CLUSTER</strong> column.
+                        </li>
+
+                        <li>
+                            Click on the <strong>CENTROIDS</strong> button and compute the new centroid of each
+                            Cluster.
+                        </li>
+                        <li>
+                            Repeat steps 8 to 11 until no data points change Clusters.
+                        </li>
+                        <li>If the Cluster matches the new Cluster, then click on the <strong>NEXT</strong> button to
+                            change the <strong>COMPUTE</strong>
+                            tab to the <strong>ANALYSE</strong> tab.</li>
+                        <li>Click on the <strong>PLOT</strong> button to show the graph.</li>
+
+                    </ol>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <!-- header -->
+        <header class="header">
+            <div class="tabs">
+
+                <!-- tabs -->
+                <div id="tab-1"
+                    style="display: flex; border-right: 2px solid black; color: white;">
+                    <div class="tab-create " >
+                        <a href="DataCreate.html" class="tab-text" style="color:white;font-weight: bold;"> CREATE</a>
+                    </div>
+                    <img src="create.png" style="margin-top: 3px; margin-right: 10px; height: 85%" alt="" onclick="">
+
+                </div>
+                <div id="tab-2" style="display: flex; border-right: 2px solid black; color: white;cursor:not-allowed;">
+                    <div class="tab-create" style="cursor:not-allowed;">
+                      COMPUTE
+                    </div>
+                    <img src="calculator.png"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;cursor:not-allowed;" alt="">
+                </div>
+                <div id="tab-3" style="display: flex; border-right: 2px solid black; color: white;cursor:not-allowed;">
+                    <div class="tab-create" style="cursor:not-allowed;">
+                       ANALYSE
+                    </div>
+                    <img src="ANALYSIS.png" class="disableCompute"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;" id="calImg" alt="">
+                </div>
+            </div>
+            <div class="instruction-container">
+                <a class="header-text" id="myBtn" style="padding-top: 5px" href="#">INSTRUCTIONS</a>
+            </div>
+        </header>
+
+
+
+
+        <!-- footer -->
+        <footer class="footer">
+            <span class="footer-text">© 2023 Virtual Labs, IIT Roorkee</span>
+        </footer>
+
+    </div>
+    <!-- <script src="C:/Users/Owner/OneDrive/Desktop/STRUCTURE/sweetalert2.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="C:/Users/Owner/OneDrive/Desktop/STRUCTURE/sweetalert2.min.css"> -->
+    <!-- <script src="C:/Users/Owner/OneDrive/Desktop/STRUCTURE/sweetalert2.all.min.js"></script> -->
+    <!-- <script src="C:/Users/Owner/OneDrive/Desktop/STRUCTURE/polyfill.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script>
+
+        // const myContainer = document.getElementById("box");
+        // myContainer.style.padding="0px";
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var modalBtn = document.getElementById("myBtn");
+        // var modalBtn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        modalBtn.addEventListener("click", function () {
+            modal.style.display = "block";
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+        const myContainer = document.getElementById('box');
+        Swal.fire({
+            icon: 'info',
+            html: 'Click on the <b>CREATE</b>.',
+            customClass: {
+                container: "swal-container",
+                popup: "swal-popup",
+                title: "swal-title",
+                content: "swal-content",
+            },
+            target: myContainer,
+            didOpen: () => {
+                const container = document.querySelector('.swal-container');
+                const containerWidth = myContainer.offsetWidth;
+                const containerHeight = myContainer.offsetHeight;
+
+                // Change font size based on container size
+                if (containerWidth >= 1000 && containerHeight >= 672) {
+                    container.style.fontSize = '24px';
+                } else {
+                    container.style.fontSize = '16px';
+                }
+
+                // Adjust dimensions and position of the Swal container
+                container.style.position = 'absolute';
+                container.style.width = '100%';
+                container.style.height = '100%';
+                container.style.top = '0';
+                container.style.left = '0';
+                container.style.padding = '0';
+            },
+        });</script>
+</body>
+
+</html>
