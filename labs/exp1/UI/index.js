@@ -1492,11 +1492,12 @@ function submitCendroid() {
     console.log(centroids); // Display centroidVal array
 }
 
+let chnageTextClusterIntoNewClusterCounter = 0;
 function showCentroids(centroids) {
     let show = document.getElementById("cenroidsContainerOld");
     show.innerHTML = "";
     const centroidLine = document.createElement("div");
-    centroidLine.innerText = `Centroids`;
+    centroidLine.innerText = chnageTextClusterIntoNewClusterCounter > 0 ? `Old Centroids` : `Centroids`;
     show.appendChild(centroidLine);
     centroids.forEach((centroid, index) => {
         const centroidLine = document.createElement("p");
@@ -3018,7 +3019,7 @@ function findNewCentroids(data, centroids) {
 
     show.innerHTML = "";
     // show.innerText = `New Centroids`;
-
+    chnageTextClusterIntoNewClusterCounter++;
 
     const labels = data.map(point => {
         const distances = centroids.map(centroid => {
@@ -3163,7 +3164,8 @@ let alertCount = 1;
 document.getElementById("new-centroids").addEventListener("click", function () {
 
     // beforeClusterCheck();
-
+    showCentroids(centroids)
+    chnageTextClusterIntoNewClusterCounter++;
     if (checkArraysEqual(clusterAll, clusterOld)) {
         enableHighLightClusterAll();
         enableHighLightNewClusterAll();
